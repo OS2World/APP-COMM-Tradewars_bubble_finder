@@ -1,0 +1,108 @@
+# Tradewars 2002 bubble finder makefile, for GNU make
+
+target=twbfw32.exe
+tempf=tttt.exe
+copts=-O6 -fno-exceptions -mpentiumpro -c \
+	  -fomit-frame-pointer -fforce-addr  $<
+lopts=-o$(tempf) -lstdc++
+rmcmd=del
+
+%.o: %.cpp
+	gcc $(copts)
+
+all: $(target)
+
+$(target): \
+	TWSector.o \
+	TWWarp.o \
+	AbEnds.o \
+	Globals.o \
+	TWBFind.o \
+	TWBubble.o \
+	TWPlot.o \
+	TWRemaps.o
+	gcc \
+	TWSector.o \
+	TWWarp.o \
+	AbEnds.o \
+	Globals.o \
+	TWBFind.o \
+	TWBubble.o \
+	TWPlot.o \
+	TWRemaps.o \
+	$(lopts)
+	ezip.bat $(tempf) $(target)
+	$(rmcmd) $(tempf)
+	$(rmcmd) *.o
+
+TWSector.o: \
+	TWSector.cpp \
+	TWWarp.hpp \
+	TWTypes.hpp \
+	TWBFind.h \
+	Globals.hpp \
+	AbEnds.hpp \
+	TWSector.hpp \
+	TWBubble.hpp \
+	TWRemaps.hpp
+
+TWRemaps.o: \
+	TWRemaps.cpp \
+	TWRemaps.hpp
+
+TWBubble.o: \
+	TWBubble.cpp \
+	TWWarp.hpp \
+	TWTypes.hpp \
+	TWBFind.h \
+	Globals.hpp \
+	AbEnds.hpp \
+	TWSector.hpp \
+	TWBubble.hpp
+
+TWBFind.o: \
+	TWBFind.cpp \
+	TWWarp.hpp \
+	TWTypes.hpp \
+	TWBFind.h \
+	Globals.hpp \
+	AbEnds.hpp \
+	TWSector.hpp \
+	TWBubble.hpp \
+	TWRemaps.hpp
+
+Globals.o: \
+	Globals.cpp \
+	TWWarp.hpp \
+	TWTypes.hpp \
+	TWBFind.h \
+	Globals.hpp \
+	AbEnds.hpp \
+	TWSector.hpp \
+	TWBubble.hpp
+
+AbEnds.o: \
+	AbEnds.cpp \
+	TWWarp.hpp \
+	TWTypes.hpp \
+	TWBFind.h \
+	Globals.hpp \
+	AbEnds.hpp \
+	TWSector.hpp \
+	TWBubble.hpp
+
+TWWarp.o: \
+	TWWarp.cpp \
+	TWWarp.hpp \
+	TWTypes.hpp
+
+TWPlot.o: \
+	TWPlot.cpp \
+	TWWarp.hpp \
+	TWTypes.hpp \
+	TWBFind.h \
+	Globals.hpp \
+	AbEnds.hpp \
+	TWSector.hpp \
+	TWBubble.hpp \
+	TWPlot.hpp

@@ -1,0 +1,12 @@
+Sector bubble locator for Tradewars 2002 BBS door game.  
+Will locate non-linear contiguous sectors based on CIM 
+sector info ("I" command), and captures of CIM course
+plots ("F" command, AKA zero-turn mapping).  Will also
+locate false bubbles (look OK from inside, but have
+one-way warp into them).  Optionally shows port info,
+and calculates distance to and from key sectors
+(Stardock, Terra, Class 0, user-defined). Supports up
+to 65535 sectors, bubbles terminated by one-way
+outwarps, and bubbles with multiple entrances. DOS,
+DPMI, Linux, OS/2, and Win32 (console) executables
+plus source included.  Version 0.15

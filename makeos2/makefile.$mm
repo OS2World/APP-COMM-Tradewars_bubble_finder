@@ -1,0 +1,111 @@
+:TARGET.SUFFIXES
+:TARGET.SUFFIXES
+:DEPENDENCY..cpp .obj 
+:TARGET.all
+:DEPENDENCY.
+.\twbfos2.exe
+:RULE..cpp.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Tl30 /Q /Fi /Si /O /G5 /Gf /Gi /Gx /Ft- /C %s
+:RULE.{h:\twbubble}.cpp.obj
+:ACTION.Compile::C++ Compiler
+:COMMAND.
+icc.exe /Tl30 /Q /Fi /Si /O /G5 /Gf /Gi /Gx /Ft- /C %s
+:TARGET..\twbfos2.exe
+:DEPENDENCY.
+.\TWSector.obj
+.\TWWarp.obj
+.\AbEnds.obj
+.\Globals.obj
+.\TWBFind.obj
+.\TWBubble.obj
+.\TWPlot.obj
+.\TWRemaps.obj
+{$(LIB)}con3216.lib
+:ACTION.Link::Linker
+:COMMAND.
+icc.exe @<<
+ /Q /B" /exepack:2 /st:102400 /packd /optfunc     "
+ /Fetwbfos2.exe 
+ con3216.lib 
+ .\TWSector.obj
+ .\TWWarp.obj
+ .\AbEnds.obj
+ .\Globals.obj
+ .\TWBFind.obj
+ .\TWBubble.obj
+ .\TWPlot.obj
+ .\TWRemaps.obj
+<<
+:TARGET..\TWSector.obj
+:DEPENDENCY.
+h:\twbubble\TWSector.cpp
+{h:\twbubble;$(INCLUDE);}TWWarp.hpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
+{h:\twbubble;$(INCLUDE);}TWBFind.h
+{h:\twbubble;$(INCLUDE);}Globals.hpp
+{h:\twbubble;$(INCLUDE);}AbEnds.hpp
+{h:\twbubble;$(INCLUDE);}TWSector.hpp
+{h:\twbubble;$(INCLUDE);}TWBubble.hpp
+{h:\twbubble;$(INCLUDE);}TWRemaps.hpp
+:TARGET..\TWRemaps.obj
+:DEPENDENCY.
+h:\twbubble\TWRemaps.cpp
+{h:\twbubble;$(INCLUDE);}TWWarp.hpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
+{h:\twbubble;$(INCLUDE);}TWRemaps.hpp
+:TARGET..\TWPlot.obj
+:DEPENDENCY.
+h:\twbubble\TWPlot.cpp
+{h:\twbubble;$(INCLUDE);}TWWarp.hpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
+{h:\twbubble;$(INCLUDE);}TWBFind.h
+{h:\twbubble;$(INCLUDE);}Globals.hpp
+{h:\twbubble;$(INCLUDE);}AbEnds.hpp
+{h:\twbubble;$(INCLUDE);}TWSector.hpp
+{h:\twbubble;$(INCLUDE);}TWBubble.hpp
+{h:\twbubble;$(INCLUDE);}TWPlot.hpp
+:TARGET..\TWBubble.obj
+:DEPENDENCY.
+h:\twbubble\TWBubble.cpp
+{h:\twbubble;$(INCLUDE);}TWWarp.hpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
+{h:\twbubble;$(INCLUDE);}TWBFind.h
+{h:\twbubble;$(INCLUDE);}Globals.hpp
+{h:\twbubble;$(INCLUDE);}AbEnds.hpp
+{h:\twbubble;$(INCLUDE);}TWSector.hpp
+{h:\twbubble;$(INCLUDE);}TWBubble.hpp
+:TARGET..\TWBFind.obj
+:DEPENDENCY.
+h:\twbubble\TWBFind.cpp
+{h:\twbubble;$(INCLUDE);}TWWarp.hpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
+{h:\twbubble;$(INCLUDE);}TWBFind.h
+{h:\twbubble;$(INCLUDE);}Globals.hpp
+{h:\twbubble;$(INCLUDE);}AbEnds.hpp
+{h:\twbubble;$(INCLUDE);}TWSector.hpp
+{h:\twbubble;$(INCLUDE);}TWBubble.hpp
+{h:\twbubble;$(INCLUDE);}TWRemaps.hpp
+:TARGET..\Globals.obj
+:DEPENDENCY.
+h:\twbubble\Globals.cpp
+{h:\twbubble;$(INCLUDE);}TWWarp.hpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
+{h:\twbubble;$(INCLUDE);}TWBFind.h
+{h:\twbubble;$(INCLUDE);}Globals.hpp
+{h:\twbubble;$(INCLUDE);}AbEnds.hpp
+{h:\twbubble;$(INCLUDE);}TWSector.hpp
+{h:\twbubble;$(INCLUDE);}TWBubble.hpp
+:TARGET..\AbEnds.obj
+:DEPENDENCY.
+h:\twbubble\AbEnds.cpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
+{h:\twbubble;$(INCLUDE);}TWBFind.h
+{h:\twbubble;$(INCLUDE);}Globals.hpp
+{h:\twbubble;$(INCLUDE);}AbEnds.hpp
+:TARGET..\TWWarp.obj
+:DEPENDENCY.
+h:\twbubble\TWWarp.cpp
+{h:\twbubble;$(INCLUDE);}TWWarp.hpp
+{h:\twbubble;$(INCLUDE);}TWTypes.hpp
